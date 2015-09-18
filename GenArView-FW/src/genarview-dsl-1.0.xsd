@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.genarview.pmmc.pro/genarview-dsl-1.0" xmlns:tns="http://www.genarview.pmmc.pro/genarview-dsl-1.0" elementFormDefault="qualified">
+
+    <include schemaLocation=""></include>
+    <include schemaLocation=""></include>
+    <element name="dsl">
+    	<complexType>
+    		<sequence minOccurs="1" maxOccurs="1">
+    			<element name="lookFor" type="tns:TypeLookFor"
+    				minOccurs="0" maxOccurs="1">
+    			</element>
+    			<element name="hintHards" type="tns:TypeHintHards"
+    				minOccurs="0" maxOccurs="1">
+    			</element>
+    			<element name="hintSofts" type="tns:TypeHintSofts"
+    				minOccurs="0" maxOccurs="1">
+    			</element>
+    			<element name="queryCompTyper" type="tns:TypeQueryCompTyper"
+    				minOccurs="0" maxOccurs="unbounded">
+    			</element>
+    			<element name="graph" type="tns:TypeGraph" minOccurs="0" maxOccurs="1"></element>
+    			<element name="measures" type="tns:TypeMeasures"
+    				minOccurs="0" maxOccurs="1">
+    			</element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <complexType name="TypeHintExp">
+    	<complexContent>
+    		<extension base="tns:TypeCompTyper">
+    			<sequence minOccurs="0" maxOccurs="1">
+		    		<choice minOccurs="1" maxOccurs="1">
+		    			<element name="hintAnd" type="tns:TypeHintAnd"></element>
+		    			<element name="hintOr" type="tns:TypeHintOr"></element>
+		    		</choice>
+		    	</sequence>
+    			<attribute name="name" type="string"></attribute>
+    		</extension>
+    	</complexContent>
+    	
+    </complexType>
+
+    <complexType name="TypeHintPlain">
+    	<complexContent>
+    		<extension base="tns:TypeHintMember">
+   			<sequence>
+   				<element name="class" type="string"
+   					minOccurs="1">
+   				</element>
+   				<element name="value" type="tns:TypeValue"
+   					minOccurs="0" maxOccurs="unbounded">
+   				</element>
+   			</sequence>
+    		</extension>
+    	</complexContent> 
+    </complexType>
+
+
+    <complexType name="TypeHintHards">
+    	<sequence>
+    		<element name="hintSource" type="tns:TypeHintSource"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</element>
+    		<element name="hintDescriptor" type="tns:TypeHintDescriptor"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+    </complexType>
+    
+    
+
+    
+
+
+
+    <complexType name="TypeHintAnd">
+    	<complexContent>
+    		<extension base="tns:TypeHintSet"></extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="TypeHintOr">
+    	<complexContent>
+    		<extension base="tns:TypeHintSet"></extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="TypeHintSet">
+    	<complexContent>
+    		<extension base="tns:TypeHintMember">
+		<choice minOccurs="1" maxOccurs="unbounded">
+			<element name="hintAnd" type="tns:TypeHintAnd">
+			</element>
+			<element name="hintOr" type="tns:TypeHintOr">
+			</element>
+			<element name="hint" type="tns:TypeHintPlain"></element>
+		</choice>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+
+
+
+
+    <complexType name="TypeFunction">
+   		<sequence>
+   			<group ref="tns:GroupImpl" minOccurs="1" maxOccurs="1"/>
+    		<element name="implements" type="tns:TypeLinkImplements"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</element>
+    		<element name="extends" type="tns:TypeLinkExtends"
+    			minOccurs="0" maxOccurs="1">
+    		</element>
+    		<element name="refs" type="tns:TypeLinkReferences"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</element>
+    		<element name="label" type="string" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TypeArgs">
+    	<sequence>
+    		<element name="arg" type="string" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="TypeLinker"></complexType>
+
+    <complexType name="TypeLinkImplements">
+    	<complexContent>
+    		<extension base="tns:TypeLinker"></extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="TypeLinkExtends">
+    	<complexContent>
+    		<extension base="tns:TypeLinker"></extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="TypeValue">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="key" type="string" use="required"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+	<complexType name="TypeDefaulter">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="default" type="string" use="required"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+    <complexType name="TypeHintMember"></complexType>
+
+    <complexType name="TypeLinkReferences">
+    	<complexContent>
+    		<extension base="tns:TypeLinker"></extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="TypeHintCustom">
+    	<complexContent>
+    		<extension base="tns:TypeCompTyper">
+		    	<sequence>
+		    		<group ref="tns:GroupImpl"/>
+		    	</sequence>
+	    	</extension>
+	    </complexContent>
+    </complexType>
+
+    <complexType name="TypeHintNaming">
+    	<complexContent>
+    		<extension base="tns:TypeCompTyper">
+	    	<sequence>
+	    		<element name="pack" type="string" minOccurs="1" maxOccurs="1"></element>
+	    		<element name="word" type="tns:TypeWord" minOccurs="1" maxOccurs="unbounded"></element>
+	    	</sequence>
+	    	</extension>
+	    </complexContent>
+    </complexType>
+    
+    <complexType name="TypeHintSofts">
+    	<sequence minOccurs="0" maxOccurs="1">
+    		<element name="hintNaming" type="tns:TypeHintNaming"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</element>
+    		<element name="hintCustom" type="tns:TypeHintCustom" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TypeWord">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="position" type="int"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+    <complexType name="TypeCompTyper">
+    	<sequence>
+    		<element name="componentType" type="string" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="TypeQueryCompTyper">
+    	<complexContent>
+    		<extension base="tns:TypeCompTyper">
+                <sequence>
+                	<group ref="tns:GroupImpl" />
+                	<element name="query" type="string" minOccurs="0"
+                		maxOccurs="1">
+                	</element>
+                	<element name="fnn" type="tns:TypeFunction" minOccurs="0"
+                		maxOccurs="unbounded">
+                	</element>
+                </sequence>
+                <attribute name="name" type="string"></attribute>
+            </extension>
+    	</complexContent>
+    </complexType>
+
+    <group name="GroupImpl">
+    	<sequence>
+    		<element name="class" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="arg" type="string" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="args" type="tns:TypeArgs" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+    </group>
+    <group name="GroupQuery">
+    	<sequence>
+    		<element name="query" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="param" type="tns:TypeValue" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+    </group>
+
+
+
+
+	<!-- Useful for record and identify Annotation full names when the code has import aaa.* -->  
+    <complexType name="TypeMetadata">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="level" use="required">
+    				<simpleType>
+    					<restriction base="string">
+    						<enumeration value="Class"></enumeration>
+    						<enumeration value="Method"></enumeration>
+    						<enumeration value="Field"></enumeration>
+    						<enumeration value="Param"></enumeration>
+    					</restriction>
+    				</simpleType>
+    			</attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType> 
+
+
+    <complexType name="TypeMethod">
+    	<simpleContent>
+    		<extension base="string"></extension>
+    	</simpleContent>
+    </complexType>
+
+    <complexType name="TypeLookFor">
+    	<sequence>
+    		<element name="metadata" type="tns:TypeMetadata"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</element>
+    		<element name="methodCall" type="tns:TypeMethod" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TypeHintSource">
+    	<complexContent>
+    		<extension base="tns:TypeHintExp">
+    			<sequence>
+    				<element name="fnn" type="tns:TypeFunction" minOccurs="0" maxOccurs="1"></element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="TypeHintDescriptor">
+    	<complexContent>
+    		<extension base="tns:TypeHintExp">
+    			<sequence>
+	    			<element name="fpp" type="tns:TypeFunction" minOccurs="0" maxOccurs="1"></element>
+					<element name="fpn" type="tns:TypeFunction" minOccurs="1" maxOccurs="1"></element>
+					<element name="fnn" type="tns:TypeFunction" minOccurs="0" maxOccurs="1"></element>
+	    		</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="TypeMeasure">
+    	<sequence minOccurs="1" maxOccurs="1">
+    		
+    		<element name="measureData" type="tns:TypeMeasureData" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="measureMap" type="tns:TypeMeasureMap" minOccurs="1" maxOccurs="unbounded"></element>
+    		<element name="measureMapComposite" type="tns:TypeMeasureMapComposite" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="TypeMeasureData">
+    	<sequence minOccurs="1" maxOccurs="1">
+    		<!-- gets results from a query or from an implementation -->
+    		<choice>
+    			<group ref="tns:GroupQuery" />
+    			<group ref="tns:GroupImpl" />
+    		</choice>
+    		<!-- adds results from other measuredata -->
+    		<element name="measureData" type="tns:TypeMeasureData" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="idField" type="string" minOccurs="1"></element>
+    		<!-- join results -->
+    		<element name="join" type="tns:TypeJoin" minOccurs="0"
+    			maxOccurs="1"></element>
+    		<!-- transform results by a map function -->
+    		<element name="fmap" type="tns:TypeFunction" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+    </complexType>
+	<complexType name="TypeMeasures">
+    	<sequence>
+    		<element name="query" type="tns:TypeQuery" minOccurs="0" maxOccurs="unbounded"></element>
+    		<element name="measure" type="tns:TypeMeasure" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+	</complexType>
+
+    <complexType name="TypeQuery">
+    	<sequence>
+    		<element name="query" type="string" minOccurs="1"></element>
+    		<element name="value" type="string" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="TypeMeasureMap">
+    	<complexContent>
+    		<extension base="tns:TypeFunction">
+    			<sequence>
+    				<element name="key" type="string" minOccurs="1"
+    					maxOccurs="1">
+    				</element>
+    				<element name="formula" type="tns:TypeFormula" minOccurs="0" maxOccurs="1"></element>
+    				<element name="reducer" type="tns:TypeMeasureReduce"
+    					minOccurs="0" maxOccurs="unbounded">
+    				</element>
+    			</sequence>
+    			<attribute name="name" type="string" use="required"></attribute>
+    			
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="TypeMeasureReduce">
+    	<complexContent>
+    		<extension base="tns:TypeFunction">
+    			<!-- key is the map key to be shown in results -->
+    			<attribute name="key" type="string" use="required"></attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="TypeMeasureMapComposite">
+    	<sequence>
+    		<element name="key" type="string" minOccurs="1"
+		    			maxOccurs="1"></element>
+    		<element name="formula" type="string" minOccurs="1"></element>
+    		<element name="measureMapName" type="string"
+    			minOccurs="2" maxOccurs="unbounded">
+    		</element>
+    		<element name="reducer" type="tns:TypeMeasureReduce"
+    			minOccurs="0" maxOccurs="1">
+    		</element>
+    	</sequence>
+    	<attribute name="name" type="string" use="required"></attribute>
+    </complexType>
+
+    <complexType name="TypeJoin">
+    	<sequence>
+    		<element name="fromField" type="string" minOccurs="1" maxOccurs="1"></element>
+    		<element name="measureData" type="tns:TypeMeasureData" minOccurs="1"
+    			maxOccurs="1"></element>
+    		<element name="forField" type="tns:TypeDefaulter" minOccurs="1" maxOccurs="unbounded"></element>
+    		<element name="join" type="tns:TypeJoin" minOccurs="0"
+    			maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TypeFormula">
+    	<sequence>
+    		<element name="var" type="string" minOccurs="1"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="condition" type="tns:TypeFormulaCondition" minOccurs="0" maxOccurs="unbounded"></element>
+    		<element name="exp" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TypeFormulaCondition">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="type" use="required">
+    				<simpleType>
+    					<restriction base="string">
+    						<enumeration value="equalTo"></enumeration>
+    						<enumeration value="lesserThan"></enumeration>
+    						<enumeration value="greaterThan"></enumeration>
+    						<enumeration value="notEqualTo"></enumeration>
+    						<enumeration value="greaterEqualTo"></enumeration>
+    						<enumeration value="lesserEqualTo"></enumeration>
+    					</restriction>
+    				</simpleType>
+    			</attribute>
+    			<attribute name="exp" type="string" use="required"></attribute>
+    			<attribute name="expVal" type="string" use="required"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+    <complexType name="TypeGraph">
+    	<sequence>
+    		<element name="glabel" type="tns:TypeGLabel" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="gupdate" type="string" minOccurs="0" maxOccurs="unbounded"></element>
+    		<element name="grun" type="string" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="TypeGLabel">
+    	<sequence>
+    		<element name="field" type="tns:TypeGLabelField" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    	<attribute name="for" type="string" use="required"></attribute>
+    </complexType>
+
+    <complexType name="TypeGLabelField">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="preffix" type="string"
+    				use="optional">
+    			</attribute>
+    			<attribute name="suffix" type="string" use="optional"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+</schema>

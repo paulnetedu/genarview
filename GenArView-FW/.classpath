@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jdt"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/uml"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/xsd"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/text-mining"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GenArView-DW"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/draw2d"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_25"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/neo4j-2.1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/exp4j"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

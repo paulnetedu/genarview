@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:dsl xmlns:tns="http://www.genarview.pmmc.pro/genarview-dsl-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.genarview.pmmc.pro/genarview-dsl-1.0 genarview-dsl-1.0.xsd ">
+  <tns:lookFor>
+  <tns:metadata level="Class">javax.inject.Named</tns:metadata>
+  <tns:metadata level="Class">javax.servlet.annotation.WebServlet</tns:metadata>
+  <tns:metadata level="Class">javax.jws.WebService</tns:metadata>
+  <tns:metadata level="Class">javax.xml.ws.WebServiceRef</tns:metadata>
+  <tns:metadata level="Class">javax.ejb.MessageDriven</tns:metadata>
+  
+  <tns:metadata level="Class">javax.persistence.Entity</tns:metadata>   
+  <tns:metadata level="Class">javax.persistence.Table</tns:metadata>
+  <tns:metadata level="Class">javax.persistence.JoinTable</tns:metadata>
+  <tns:metadata level="Class">javax.persistence.AuditJoinTable</tns:metadata>
+  <tns:metadata level="Class">javax.ws.rs.Path</tns:metadata>
+  <tns:metadata level="Class">javax.ws.rs.GET</tns:metadata>
+  <tns:metadata level="Class">javax.ws.rs.POST</tns:metadata>
+  <tns:metadata level="Class">javax.ws.rs.PUT</tns:metadata>
+  <tns:metadata level="Class">javax.ws.rs.QueryParam</tns:metadata>
+  <tns:metadata level="Class">javax.ws.rs.Consumes</tns:metadata>
+  <tns:metadata level="Class">javax.ws.rs.Produces</tns:metadata>
+  <tns:metadata level="Class">javax.ws.rs.OPTIONS</tns:metadata>
+  <tns:methodCall>createQuery</tns:methodCall>
+  </tns:lookFor>
+  <tns:hintHards>
+  	<!-- ANDROID -->
+    <!-- tns:hintSource name="Activity">
+    	<tns:componentType>Activity</tns:componentType>
+    	<tns:hintAnd>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithUnitExtendsImported</tns:class>
+		        	<tns:value key="baseClassFullName">android.app.Activity</tns:value>
+		        </tns:hint>
+	    </tns:hintAnd>
+    </tns:hintSource>
+    <tns:hintSource name="Fragment">
+    	<tns:componentType>Fragment</tns:componentType>
+    	<tns:hintAnd>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithUnitExtendsImported</tns:class>
+		        	<tns:value key="baseClassFullName">android.app.Fragment</tns:value>
+		        </tns:hint>
+	    </tns:hintAnd>
+    </tns:hintSource>
+    <tns:hintSource name="Service">
+    	<tns:componentType>Service</tns:componentType>
+    	<tns:hintOr>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithUnitExtendsImported</tns:class>
+		        	<tns:value key="baseClassFullName">android.app.Service</tns:value>
+		        </tns:hint>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithUnitExtendsImported</tns:class>
+		        	<tns:value key="baseClassFullName">android.app.IntentService</tns:value>
+		        </tns:hint>
+	    </tns:hintOr>
+    </tns:hintSource>
+    <tns:hintSource name="BroadcastReceiver">
+    	<tns:componentType>BroadcastReceiver</tns:componentType>
+    	<tns:hintAnd>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithUnitExtendsImported</tns:class>
+		        	<tns:value key="baseClassFullName">android.content.BroadcastReceiver</tns:value>
+		        </tns:hint>
+	    </tns:hintAnd>
+    </tns:hintSource>
+    <tns:hintSource name="ContentProvider">
+    	<tns:componentType>ContentProvider</tns:componentType>
+    	<tns:hintAnd>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithUnitExtendsImported</tns:class>
+		        	<tns:value key="baseClassFullName">android.content.ContentProvider</tns:value>
+		        </tns:hint>
+	    </tns:hintAnd>
+    </tns:hintSource--> 
+  	<!-- JEE -->
+    <!-- tns:hintSource name="Stateless">
+    	<tns:componentType>EJB</tns:componentType>
+    	<tns:componentType>SessionEJB</tns:componentType>
+    	<tns:componentType>Stateless</tns:componentType>
+  		<tns:hintOr>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithAnnotation</tns:class>
+		        	<tns:value key="annotationLevel">TYPE</tns:value>
+	      			<tns:value key="annotationName">Stateless</tns:value>
+		        </tns:hint>
+	    </tns:hintOr>
+    </tns:hintSource>
+    <tns:hintSource name="Stateful">
+    	<tns:componentType>EJB</tns:componentType>
+    	<tns:componentType>SessionEJB</tns:componentType>
+    	<tns:componentType>Stateful</tns:componentType>
+  		<tns:hintOr>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithAnnotation</tns:class>
+		        	<tns:value key="annotationLevel">TYPE</tns:value>
+	      			<tns:value key="annotationName">Stateful</tns:value>
+		        </tns:hint>
+        </tns:hintOr>
+    </tns:hintSource>
+    <tns:hintSource name="Singleton">
+    	<tns:componentType>EJB</tns:componentType>
+    	<tns:componentType>SessionEJB</tns:componentType>
+    	<tns:componentType>Singleton</tns:componentType>
+  		<tns:hintOr>
+		        <tns:hint>
+		        	<tns:class>pro.pmmc.genarview.functional.predicate.node.PWithAnnotation</tns:class>
+		        	<tns:value key="annotationLevel">TYPE</tns:value>
+	      			<tns:value key="annotationName">Singleton</tns:value>
+		        </tns:hint>
+	    </tns:hintOr>
+    </tns:hintSource-->
+  </tns:hintHards> 
+  <!-- tns:queryCompTyper name="Facade">
+    	<tns:componentType>Facade</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:SessionEJB)-[:REFERENCE]->(e1:Type)-[:T_HAS_ANNOTATION]->(a1:Annotation), (b:SessionEJB)-[:REFERENCE]->(e2:Type)-[:T_HAS_ANNOTATION]->(a2:Annotation) WHERE not(e1 = e2) AND (a1.name="Local" OR a1.name="Remote") AND (a2.name="Local" OR a2.name="Remote")  
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="Dependency injection" >
+    	<tns:componentType>DI</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Field) WHERE a.fullName="javax.inject.Inject"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="Factory method" >
+    	<tns:componentType>FactoryMethod</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Method) WHERE a.fullName="javax.enterprise.inject.Produces"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="Decorator" >
+    	<tns:componentType>Decorator</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.decorator.Decorator"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="Interceptor" >
+    	<tns:componentType>Interceptor</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.interceptor.Interceptor"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="Asynchronous" >
+    	<tns:componentType>Asynchronous</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Method) WHERE a.fullName="javax.ejb.Asynchronous"   
+		</tns:query>
+    </tns:queryCompTyper>  
+    <tns:queryCompTyper name="TimerService" >
+    	<tns:componentType>TimerService</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Method) WHERE a.fullName="javax.ejb.Schedule" OR a.fullName="javax.ejb.Timeout"  
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="Observer" >
+    	<tns:componentType>Observer</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Param) WHERE a.fullName="javax.enterprise.event.Observes"  
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="RESTFulService" >
+    	<tns:componentType>RESTFulService</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.ws.rs.Path"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="DataAccess" >
+    	<tns:componentType>DataAccess</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>t</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (t:Type)-&gt;(i:TypeImported), (t:Type)-[:USE]-&gt;(e:Type)-&gt;(ae:Annotation) WITH t AS t, i.fullName AS em, ae.fullName AS ety, COUNT(DISTINCT(e)) AS n WHERE em="javax.persistence.EntityManager" AND ety="javax.persistence.Entity" AND n=1   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="Entity" >
+    	<tns:componentType>Entity</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.persistence.Entity"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="ManagedBean" >
+    	<tns:componentType>ManagedBean</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.inject.Named"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="JavaServlet" >
+    	<tns:componentType>JavaServlet</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.servlet.annotation.WebServlet"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="WebService" >
+    	<tns:componentType>WebService</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.jws.WebService"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="WebServiceClient" >
+    	<tns:componentType>WebServiceClient</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.xml.ws.WebServiceRef"   
+		</tns:query>
+    </tns:queryCompTyper>
+    <tns:queryCompTyper name="MessageDriven" >
+    	<tns:componentType>MessageDriven</tns:componentType>
+    	<tns:class>pro.pmmc.genarview.query.GenericQueryCompTyper</tns:class>
+    	<tns:args>
+    		<tns:arg>b</tns:arg>
+    	</tns:args>
+    	<tns:query>MATCH (b:Type)-[:T_HAS_ANNOTATION]->(a:Annotation:Class) WHERE a.fullName="javax.ejb.MessageDriven"   
+		</tns:query>
+    </tns:queryCompTyper-->
+  <tns:graph>
+  	<tns:glabel for="Package">
+  		<tns:field preffix="L_">level</tns:field>
+  		<tns:field preffix="N_">name</tns:field>
+  	</tns:glabel>
+  	<tns:gupdate>MATCH(t1:Type)-[g:GENERALIZATION|REALIZATION]-&gt;(t2:Type) WITH t1 AS type1, COUNT(*) AS q SET type1.nExtends=q</tns:gupdate>
+  	<tns:gupdate>MATCH(t1:Type)-[g:ASSOCIATION|DEPENDENCY]-&gt;(t2:Type) WHERE NOT((t1:Type)-[g:GENERALIZATION]-&gt;(t2:Type)) AND NOT((t1:Type)-[g:REALIZATION]-&gt;(t2:Type)) WITH t1 AS tt1, COUNT(*) AS q SET tt1.nUses=q</tns:gupdate>
+  	<!-- AGG PACKAGE -->
+  	<!-- tns:gupdate>MATCH(p1:Package)-[r1:CONTAIN]-&gt;(t1:Type)-[g:GENERALIZATION]-&gt;(t2:Type)&lt;-[r2:CONTAIN]-(p2:Package) WITH p1 AS pack1, p2 AS pack2, COUNT(*) AS q WHERE NOT(pack1=pack2) CREATE pack1-[r:PackGeneralization{n:q}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)-[r1:CONTAIN]-&gt;(t1:Type)-[g:REALIZATION]-&gt;(t2:Type)&lt;-[r2:CONTAIN]-(p2:Package) WITH p1 AS pack1, p2 AS pack2, COUNT(*) AS q WHERE NOT(pack1=pack2) CREATE pack1-[r:PackRealization{n:q}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)-[r1:CONTAIN]-&gt;(t1:Type)-[g:ASSOCIATION]-&gt;(t2:Type)&lt;-[r2:CONTAIN]-(p2:Package) WITH p1 AS pack1, p2 AS pack2, COUNT(*) AS q WHERE NOT(pack1=pack2) CREATE pack1-[r:PackAssociation{n:q}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)-[r1:CONTAIN]-&gt;(t1:Type)-[g:DEPENDENCY]-&gt;(t2:Type)&lt;-[r2:CONTAIN]-(p2:Package) WITH p1 AS pack1, p2 AS pack2, COUNT(*) AS q WHERE NOT(pack1=pack2) CREATE pack1-[r:PackDependency{n:q}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)-[r:PackGeneralization|PackRealization]-&gt;(p2:Package) WITH p1 AS pack1, p2 AS pack2, r AS rel, SUM(r.n) AS s CREATE pack1-[nr:PackEXTENDS{n:s}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)-[r:AggAssociation|AggDependency]-&gt;(p2:Package) WITH p1 AS pack1, p2 AS pack2, r AS rel, SUM(r.n) AS s WHERE NOT((pack1:Package)-[:EXTENDS]-&gt;(pack2:Package)) WITH pack1 AS pk1, pack2 AS pk2, SUM(s) AS suma CREATE pk1-[nr:PackUSES{n:suma}]-&gt;pk2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)&lt;-[r:PackEXTENDS]-(p2:Package) WITH p1 AS pack1, SUM(r.n) AS s SET pack1.inExt=s</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)-[r:PackEXTENDS]-&gt;(p2:Package) WITH p1 AS pack1, SUM(r.n) AS s SET pack1.outExt=s</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)&lt;-[r:PackUSES]-(p2:Package) WITH p1 AS pack1, SUM(r.n) AS s SET pack1.inUses=s</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package)-[r:PackUSES]-&gt;(p2:Package) WITH p1 AS pack1, SUM(r.n) AS s SET pack1.outUses=s</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) SET p1.inInt=p1.inExt+p1.inUses</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) SET p1.outInt=p1.outExt+p1.outUses</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) WHERE p1.inExt IS NULL SET p1.inExt=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) WHERE p1.outExt IS NULL SET p1.outExt=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) WHERE p1.inUses IS NULL SET p1.inUses=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) WHERE p1.outUses IS NULL SET p1.outUses=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) WHERE p1.inInt IS NULL SET p1.inInt=0 </tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) WHERE p1.outInt IS NULL SET p1.outInt=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:Package) SET p1.inoutInt=p1.inInt+p1.outInt</tns:gupdate-->
+  	<!--  AGG COMPONENT -->
+  	<!-- tns:gupdate>MATCH(p1:ComponentType)-[r1:REALIZED_BY]-&gt;(t1:Type)-[g:GENERALIZATION]-&gt;(t2:Type)&lt;-[r2:CONTAIN]-(p2:ComponentType) WITH p1 AS pack1, p2 AS pack2, COUNT(*) AS q WHERE NOT(pack1=pack2) CREATE pack1-[r:CompGeneralization{n:q}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)-[r1:REALIZED_BY]-&gt;(t1:Type)-[g:REALIZATION]-&gt;(t2:Type)&lt;-[r2:CONTAIN]-(p2:ComponentType) WITH p1 AS pack1, p2 AS pack2, COUNT(*) AS q WHERE NOT(pack1=pack2) CREATE pack1-[r:CompRealization{n:q}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)-[r1:REALIZED_BY]-&gt;(t1:Type)-[g:ASSOCIATION]-&gt;(t2:Type)&lt;-[r2:CONTAIN]-(p2:ComponentType) WITH p1 AS pack1, p2 AS pack2, COUNT(*) AS q WHERE NOT(pack1=pack2) CREATE pack1-[r:CompAssociation{n:q}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)-[r1:REALIZED_BY]-&gt;(t1:Type)-[g:DEPENDENCY]-&gt;(t2:Type)&lt;-[r2:CONTAIN]-(p2:ComponentType) WITH p1 AS pack1, p2 AS pack2, COUNT(*) AS q WHERE NOT(pack1=pack2) CREATE pack1-[r:CompDependency{n:q}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)-[r:CompGeneralization|CompRealization]-&gt;(p2:ComponentType) WITH p1 AS pack1, p2 AS pack2, r AS rel, SUM(r.n) AS s CREATE pack1-[nr:CompEXTENDS{n:s}]-&gt;pack2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)-[r:CompAssociation|CompDependency]-&gt;(p2:ComponentType) WITH p1 AS pack1, p2 AS pack2, r AS rel, SUM(r.n) AS s WHERE NOT((pack1:Package)-[:CompEXTENDS]-&gt;(pack2:Package)) WITH pack1 AS pk1, pack2 AS pk2, SUM(s) AS suma CREATE pk1-[nr:CompUSES{n:suma}]-&gt;pk2</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)&lt;-[r:EXTENDS]-(p2:ComponentType) WITH p1 AS pack1, SUM(r.n) AS s SET pack1.inExt=s</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)-[r:EXTENDS]-&gt;(p2:ComponentType) WITH p1 AS pack1, SUM(r.n) AS s SET pack1.outExt=s</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)&lt;-[r:USES]-(p2:ComponentType) WITH p1 AS pack1, SUM(r.n) AS s SET pack1.inUses=s</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType)-[r:USES]-&gt;(p2:ComponentType) WITH p1 AS pack1, SUM(r.n) AS s SET pack1.outUses=s</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) SET p1.inInt=p1.inExt+p1.inUses</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) SET p1.outInt=p1.outExt+p1.outUses</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) WHERE p1.inExt IS NULL SET p1.inExt=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) WHERE p1.outExt IS NULL SET p1.outExt=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) WHERE p1.inUses IS NULL SET p1.inUses=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) WHERE p1.outUses IS NULL SET p1.outUses=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) WHERE p1.inInt IS NULL SET p1.inInt=0 </tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) WHERE p1.outInt IS NULL SET p1.outInt=0</tns:gupdate>
+  	<tns:gupdate>MATCH(p1:ComponentType) SET p1.inoutInt=p1.inInt+p1.outInt</tns:gupdate>
+  	<tns:grun>pro.pmmc.genarview.graph.GrunPackageChildren</tns:grun-->
+  </tns:graph>  
+  <tns:measures>
+    <tns:measure>
+  		<tns:measureData>
+  			<tns:query>MATCH (p:Package)-[:CONTAIN]->(t:Type:DeclarationTop) 
+  			WITH p.fullName AS package, COUNT(*) AS n  RETURN package, n
+  			</tns:query>
+  			<tns:idField>package</tns:idField>
+  			<tns:join>
+  				<tns:fromField>package</tns:fromField>
+	  			<tns:measureData>
+		  			<tns:query>MATCH (p:Package)-[:CONTAIN]->(t1:Type:DeclarationTop), 
+		  			(p)-[:CONTAIN]->(t2:Type:DeclarationTop), 
+		  			(t1)-->(t2) 
+		  			WITH p.fullName AS package, 
+		  			COUNT(DISTINCT t1.fullName+"-"+ t2.fullName) AS nrels 
+		  			RETURN package, nrels</tns:query>
+		  			<tns:idField>package</tns:idField>
+		  		</tns:measureData>
+		  		<tns:forField default="0">nrels</tns:forField>
+	  		</tns:join>
+  		</tns:measureData>
+  		<tns:measureMap name="PackageCohesion">
+  			<tns:class>pro.pmmc.genarview.map.MapFormula</tns:class>
+  			<tns:key>package</tns:key>
+  			<tns:formula>
+	 			<tns:var>n</tns:var>
+	 			<tns:var>nrels</tns:var>
+	 			<tns:condition exp="n" type="equalTo" expVal="1" >
+	 			1</tns:condition>
+	 			<tns:condition exp="nrels" type="equalTo" expVal="0" >
+	 			0</tns:condition>
+	 			<tns:exp>nrels / (n*(n-1))</tns:exp>
+  			</tns:formula>
+  			<tns:reducer key="min">
+  				<tns:class>pro.pmmc.genarview.reduce.ReduceMin</tns:class>
+  			</tns:reducer>
+  			<tns:reducer key="max">
+  				<tns:class>pro.pmmc.genarview.reduce.ReduceMax</tns:class>
+  			</tns:reducer>
+  			<tns:reducer key="avg">
+  				<tns:class>pro.pmmc.genarview.reduce.ReduceAvg</tns:class>
+  			</tns:reducer>
+  			<tns:reducer key="stdev">
+  				<tns:class>pro.pmmc.genarview.reduce.ReduceStdev</tns:class>
+  			</tns:reducer>
+  		</tns:measureMap>
+  		<!-- tns:measureMap name="nPackageAll">
+  			<tns:class>pro.pmmc.genarview.map.MapDummy</tns:class>
+  			<tns:key>package</tns:key>
+  		</tns:measureMap>
+  		<tns:measureMap name="nPackage">
+  			<tns:class>pro.pmmc.genarview.map.MapSimpleValue</tns:class>
+  			<tns:arg>n</tns:arg>
+  			<tns:key>package</tns:key>
+  		</tns:measureMap>
+  		<tns:measureMap name="nPackageRels">
+  			<tns:class>pro.pmmc.genarview.map.MapSimpleValue</tns:class>
+  			<tns:arg>nrels</tns:arg>
+  			<tns:key>package</tns:key>
+  		</tns:measureMap-->
+  	</tns:measure>
+  	<!--tns:measure>
+  		<tns:measureData>
+  			<tns:query>MATCH (t:Activity) RETURN t.fullName AS name, 1 AS n</tns:query>
+  			<tns:idField>name</tns:idField>
+  		</tns:measureData>
+  		<tns:measureMap name="nActivity">
+  			<tns:class>pro.pmmc.genarview.map.MapSimpleValue</tns:class>
+  			<tns:arg>n</tns:arg>
+  			<tns:key>name</tns:key>
+  			<tns:reducer>
+  				<tns:class>pro.pmmc.genarview.reduce.ReduceAdd</tns:class>
+  			</tns:reducer>
+  		</tns:measureMap>
+  	</tns:measure>
+  	<tns:measure>
+  		<tns:measureData>
+  			<tns:query>MATCH (t:Fragment) WITH "Fragment" AS name, COUNT(*) AS n  RETURN name, n</tns:query>
+  			<tns:idField>name</tns:idField>
+  		</tns:measureData>
+  		<tns:measureMap name="Fragment">
+  			<tns:class>pro.pmmc.genarview.map.MapSimpleValue</tns:class>
+  			<tns:arg>n</tns:arg>
+  			<tns:key>name</tns:key>
+  		</tns:measureMap>
+  	</tns:measure-->
+  	
+  	
+  </tns:measures>
+</tns:dsl>
